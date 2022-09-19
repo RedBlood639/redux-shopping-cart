@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export interface CartState {
-  items: { [productID: string]: number };
+  items: {
+    [productID: string]: number;
+  };
 }
 
 const initialState: CartState = {
