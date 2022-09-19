@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./Cart.module.css";
 import { useAppSelector } from "../../app/hook";
+import { getTotalPrice } from "./cartSlice";
 
 export function Cart() {
   const products = useAppSelector((state) => state.products.products);
   const items = useAppSelector((state) => state.cart.items);
+  const totalPrice = useAppSelector(getTotalPrice);
 
   return (
     <main className="page">
@@ -46,7 +48,7 @@ export function Cart() {
           <tr>
             <td>Total</td>
             <td></td>
-            <td className={styles.total}>${0.0}</td>
+            <td className={styles.total}>${totalPrice}</td>
             <td></td>
           </tr>
         </tfoot>
